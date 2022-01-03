@@ -1,4 +1,4 @@
-# Home assignment from  [https://www.eladsoft.com/] (Elad) Software Systems for FED position
+# Home assignment from  [Elad] (https://www.eladsoft.com/) Software Systems for FED position
 
 This project was bootstrapped with Create React App.
 
