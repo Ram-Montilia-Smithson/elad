@@ -20,9 +20,9 @@ function App() {
       data.map(object => {
         return (
           <section key={object.id}>
-            <p>id:{object.id}</p>
+            <p>Id:{object.id}</p>
             <h1>Site Name:{object.name}</h1>
-            <a target="_blank" rel="noreferrer" href={`https://${object.url}`}>Site Url: {object.name}</a>
+            <a target="_blank" rel="noreferrer" href={`https://${object.url}`}>Site Url:{object.name}</a>
               {object.subData && getSubData(object.subData)}
           </section>
         )
