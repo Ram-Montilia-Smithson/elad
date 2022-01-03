@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import { useState, useEffect } from "react"
 import './App.css';
 
 function App() {
+
+  const [DATA, setDATA] = useState([])
+
+  useEffect(() => {
+    getDATA()
+  }, [])
+
+  // simulating fetch from server
+  const getDATA = () => {
+    const data = require("./DATA.json")
+    setDATA(data)
+  }
+
+  const getSubData = (data) => {
+    return (
+      data.map(object => {
+        return (
+          <section key={object.id}>
+            <p>id:{object.id}</p>
+            <h1>Site Name:{object.name}</h1>
+            <a target="_blank" rel="noreferrer" href={`https://${object.url}`}>Site Url: {object.name}</a>
+              {object.subData && getSubData(object.subData)}
+          </section>
+        )
+      })
+    )
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {DATA.length && getSubData(DATA)}
     </div>
   );
 }
